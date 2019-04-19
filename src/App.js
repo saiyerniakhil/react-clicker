@@ -12,12 +12,12 @@ class App extends React.Component{
   }
   
   handleClick(event) {
-    if(event.target.className === 'plus') {
+    if(event.target.id === 'plus') {
       this.setState({
         counter : this.state.counter + 1
       }) 
     }
-    else if (event.target.className === 'minus') {
+    else if (event.target.id === 'minus') {
       this.setState({
         counter : this.state.counter - 1
       }) 
@@ -32,10 +32,12 @@ class App extends React.Component{
   render() {
     return(
       <div>
-        <div style={{backgroundColor:"aliceblue",width:300,height:200}}>
-          <h1>React Clicker!</h1>
-          <h1>{this.state.counter}</h1>
-          <div><button className = 'plus' onClick={this.handleClick} >+</button> <button className='reset' onClick={this.handleClick}>Reset</button> <button className='minus' onClick={this.handleClick}>-</button> </div>
+        <div className="container text-center" style={{position: 'absolute', left: '50%', top: '30%',
+        transform: 'translate(-50%, -50%)',backgroundColor:"aliceblue",width:300,height:200}}>
+          <h1 >React Clicker!</h1>
+          <h1 >{this.state.counter}</h1>
+          <div ><Button color="success" className='text-center' id = 'plus' onClick={this.handleClick} >+</Button> <Button color="warning" id='reset' onClick={this.handleClick}>Reset</Button> <Button color='danger' id='minus' onClick={this.handleClick}>-</Button> </div>
+         
         </div>
       </div>  
     );
